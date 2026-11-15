@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Conditions d'utilisation — VESC Dashboard by KROSOVO">
+<meta property="og:title" content="Conditions d'utilisation — VESC Dashboard by KROSOVO">
+<title>Conditions d'utilisation — VESC Dashboard by KROSOVO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060a13;--panel:#0d131d;--panel2:#131b28;--line:#1f2937;
+  --text:#e9eef7;--muted:#7f8da3;--accent:#2f7bff;--ok:#5dd67f;
+  --font:"Sora","Segoe UI",Arial,sans-serif;
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  color-scheme:dark;
+}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font)}
+a{color:var(--accent);text-decoration:none}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:50;background:#060a13d9;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .in{display:flex;align-items:center;gap:14px;padding:12px 22px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--cond);font-weight:700;font-size:19px;letter-spacing:1.5px;color:var(--text)}
+.logo small{color:var(--muted);font-size:11px;letter-spacing:2px;font-weight:500}
+.back{margin-left:auto;color:var(--muted);font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:9px}
+.back:hover{color:var(--text);background:var(--panel2)}
+.lang{display:flex;gap:4px;margin-left:8px}
+.lang button{background:none;border:0;color:var(--muted);font:600 12px var(--font);padding:6px 12px;cursor:pointer;letter-spacing:.5px}
+.lang button.on{background:var(--accent);color:#fff}
+main{padding:56px 22px 40px}
+.hero{text-align:center;max-width:860px;margin:0 auto 44px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#0d131dcc;border-radius:999px;padding:7px 16px;font-size:12.5px;color:var(--muted);letter-spacing:1.2px;font-weight:600}
+h1{margin:22px 0 10px;font-family:var(--cond);font-weight:700;font-size:clamp(42px,7vw,72px);line-height:.95;letter-spacing:1px;
+   background:linear-gradient(180deg,var(--text),color-mix(in srgb,var(--text) 62%,transparent));
+   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.maj{color:var(--muted);font-size:13px;letter-spacing:.5px;margin:6px 0 0}
+.sec{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:26px 28px;margin-bottom:18px}
+.sec h2{margin:0 0 12px;font-family:var(--cond);font-weight:700;font-size:24px;letter-spacing:1px;display:flex;align-items:center;gap:10px}
+.sec h2 .n{color:var(--accent);font-size:15px;border:1px solid var(--line);border-radius:8px;padding:2px 8px;background:var(--panel2)}
+.sec p,.sec li{color:var(--muted);font-size:14.5px;line-height:1.75;font-weight:300}
+.sec b,.sec strong{color:var(--text);font-weight:600}
+.sec ul{margin:10px 0 0;padding-left:20px}
+.sec li{margin-bottom:7px}
+.warn{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));background:color-mix(in srgb,var(--accent) 7%,var(--panel))}
+footer{border-top:1px solid var(--line);margin-top:44px}
+footer .in{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;padding:22px;max-width:1100px;margin:0 auto;color:var(--muted);font-size:12.5px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="in">
+    <a class="logo" href="index.html">VESC <small>DASHBOARD</small></a>
+    <a class="back" href="index.html" data-fr="← Retour" data-en="← Back">← Retour</a>
+    <div class="lang">
+      <button id="langFr" onclick="setLang('fr')">FR</button>
+      <button id="langEn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <span class="badge">⚖️ VESC DASHBOARD</span>
+    <h1 data-fr="Conditions d'utilisation" data-en="Terms of Use">Conditions d'utilisation</h1>
+    <p class="maj" data-fr="Dernière mise à jour : 15 novembre 2026" data-en="Last updated: November 15, 2026">Dernière mise à jour : 15 novembre 2026</p>
+  </div>
+
+  <p class="maj" style="text-align:center;margin-bottom:36px" data-fr="En téléchargeant ou en utilisant VESC Dashboard, vous acceptez les conditions suivantes." data-en="By downloading or using VESC Dashboard, you accept the following terms.">En téléchargeant ou en utilisant VESC Dashboard, vous acceptez les conditions suivantes.</p>
+
+  <div class="sec">
+    <h2><span class="n">1</span><span data-fr="Objet" data-en="Scope">Objet</span></h2>
+    <p data-fr="VESC Dashboard est un tableau de bord <b>open-source et non officiel</b> pour contrôleurs VESC. Il n'est ni affilié à, ni approuvé par le VESC Project ou Benjamin Vedder. « VESC® » est une marque déposée de ses propriétaires respectifs." data-en="VESC Dashboard is an <b>open-source, unofficial</b> dashboard for VESC controllers. It is neither affiliated with nor endorsed by the VESC Project or Benjamin Vedder. “VESC®” is a registered trademark of its respective owners.">VESC Dashboard est un tableau de bord <b>open-source et non officiel</b> pour contrôleurs VESC. Il n'est ni affilié à, ni approuvé par le VESC Project ou Benjamin Vedder. « VESC® » est une marque déposée de ses propriétaires respectifs.</p>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">2</span><span data-fr="Utilisation à vos risques et périls" data-en="Use at your own risk">Utilisation à vos risques et périls</span></h2>
+    <p data-fr="VESC Dashboard est un projet amateur fourni <b>« en l'état »</b>, sans aucune garantie. Les auteurs ne peuvent être tenus responsables de tout dommage matériel, blessure ou préjudice résultant de son utilisation." data-en="VESC Dashboard is a hobby project provided <b>“as is”</b>, with no warranty of any kind. The authors cannot be held liable for any material damage, injury or loss resulting from its use.">VESC Dashboard est un projet amateur fourni <b>« en l'état »</b>, sans aucune garantie. Les auteurs ne peuvent être tenus responsables de tout dommage matériel, blessure ou préjudice résultant de son utilisation.</p>
+  </div>
+
+  <div class="sec warn">
+    <h2><span class="n">3</span><span data-fr="Sécurité" data-en="Safety">Sécurité</span></h2>
+    <ul>
+      <li data-fr="<b>N'utilisez jamais l'application en conduisant.</b> Réglez et consultez toujours à l'arrêt." data-en="<b>Never use the app while riding.</b> Always adjust and check while stopped."><b>N'utilisez jamais l'application en conduisant.</b> Réglez et consultez toujours à l'arrêt.</li>
+      <li data-fr="Vérifiez la configuration de votre VESC (limites de courant, batterie, moteur) avant toute utilisation." data-en="Check your VESC configuration (current limits, battery, motor) before any use.">Vérifiez la configuration de votre VESC (limites de courant, batterie, moteur) avant toute utilisation.</li>
+      <li data-fr="Testez chaque mode <b>à l'arrêt</b> avant de rouler." data-en="Test each mode <b>while stopped</b> before riding.">Testez chaque mode <b>à l'arrêt</b> avant de rouler.</li>
+      <li data-fr="Portez toujours un casque et les équipements de protection adaptés." data-en="Always wear a helmet and appropriate protective gear.">Portez toujours un casque et les équipements de protection adaptés.</li>
+      <li data-fr="Respectez la législation locale (voie publique, puissance, vitesse)." data-en="Respect local laws (public roads, power, speed).">Respectez la législation locale (voie publique, puissance, vitesse).</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">4</span><span data-fr="Limites moteur" data-en="Motor limits">Limites moteur</span></h2>
+    <ul>
+      <li data-fr="Les modes appliquent une <b>limite de courant temporaire</b> : ils ne peuvent qu'abaisser la limite configurée dans le VESC, jamais la dépasser." data-en="Modes apply a <b>temporary current limit</b>: they can only lower the limit configured in the VESC, never exceed it.">Les modes appliquent une <b>limite de courant temporaire</b> : ils ne peuvent qu'abaisser la limite configurée dans le VESC, jamais la dépasser.</li>
+      <li data-fr="La limite revient automatiquement à la normale à la déconnexion." data-en="The limit automatically reverts to normal on disconnect.">La limite revient automatiquement à la normale à la déconnexion.</li>
+      <li data-fr="<b>La configuration de votre matériel reste votre responsabilité</b> ; l'application ne remplace pas un réglage sérieux du VESC." data-en="<b>Your hardware configuration remains your responsibility</b>; the app does not replace proper VESC tuning."><b>La configuration de votre matériel reste votre responsabilité</b> ; l'application ne remplace pas un réglage sérieux du VESC.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">5</span><span data-fr="Aucune garantie" data-en="No warranty">Aucune garantie</span></h2>
+    <p data-fr="VESC Dashboard est distribué dans l'espoir qu'il sera utile, <b>sans garantie d'aucune sorte</b>, expresse ou implicite." data-en="VESC Dashboard is distributed in the hope that it will be useful, <b>without any warranty</b>, express or implied.">VESC Dashboard est distribué dans l'espoir qu'il sera utile, <b>sans garantie d'aucune sorte</b>, expresse ou implicite.</p>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">6</span><span data-fr="Données et services tiers" data-en="Data & third-party services">Données et services tiers</span></h2>
+    <p data-fr="Vos réglages et votre historique restent <b>localement sur votre appareil</b> (localStorage). Aucun tracker, aucun analytics." data-en="Your settings and history stay <b>locally on your device</b> (localStorage). No trackers, no analytics.">Vos réglages et votre historique restent <b>localement sur votre appareil</b> (localStorage). Aucun tracker, aucun analytics.</p>
+    <p data-fr="La carte et l'itinéraire reposent sur des services publics gratuits (OpenStreetMap, Nominatim, OSRM, Esri), sans garantie de disponibilité ni d'exactitude ; votre position GPS transite vers ces services uniquement pour afficher la carte et calculer un itinéraire." data-en="The map and routing rely on free public services (OpenStreetMap, Nominatim, OSRM, Esri), with no guarantee of availability or accuracy; your GPS position is sent to those services only to display the map and compute a route.">La carte et l'itinéraire reposent sur des services publics gratuits (OpenStreetMap, Nominatim, OSRM, Esri), sans garantie de disponibilité ni d'exactitude ; votre position GPS transite vers ces services uniquement pour afficher la carte et calculer un itinéraire.</p>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">7</span><span data-fr="Évolution des conditions" data-en="Changes to these terms">Évolution des conditions</span></h2>
+    <p data-fr="Ces conditions peuvent évoluer avec les versions. La version en vigueur est celle publiée sur ce site à la date d'utilisation." data-en="These terms may evolve with new versions. The version in force is the one published on this site at the time of use.">Ces conditions peuvent évoluer avec les versions. La version en vigueur est celle publiée sur ce site à la date d'utilisation.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="in">
+    <span data-fr="VESC Dashboard — projet personnel de KROSOVO, non affilié à VESC ou Stark Future." data-en="VESC Dashboard — a personal project by KROSOVO, not affiliated with VESC or Stark Future.">VESC Dashboard — projet personnel de KROSOVO, non affilié à VESC ou Stark Future.</span>
+    <span><a href="https://github.com/clementdbs2-del/vesc-dashboard">GitHub</a> · <a href="app/" data-fr="Application" data-en="App">Application</a></span>
+  </div>
+</footer>
+
+<script>
+let lang="fr";
+try{lang=localStorage.getItem("vdLang")||"fr"}catch(e){}
+function setLang(l){
+  lang=l;try{localStorage.setItem("vdLang",l)}catch(e){}
+  document.documentElement.lang=l;
+  document.querySelectorAll("[data-fr]").forEach(el=>{el.innerHTML=el.dataset[l]});
+  document.getElementById("langFr").classList.toggle("on",l==="fr");
+  document.getElementById("langEn").classList.toggle("on",l==="en");
+}
+setLang(lang);
+</script>
+</body>
+</html>
