@@ -28,9 +28,9 @@ Sur iPhone / iPad, Safari ne supporte pas le Bluetooth web. Pour la connexion au
 
 ## 🚀 Dernière version web
 
-**Version actuelle :** V0.74
+**Version actuelle :** V0.75
 
-👉 [**Accéder à la dernière version du VESC Dashboard**](https://clementdbs2-del.github.io/vesc-dashboard/Pre-Releases/V0.74.html)
+👉 [**Accéder à la dernière version du VESC Dashboard**](https://clementdbs2-del.github.io/vesc-dashboard/Pre-Releases/V0.75.html)
 
 Les versions antérieures sont conservées dans le dossier [`Pre-Releases/`](Pre-Releases/).
 
