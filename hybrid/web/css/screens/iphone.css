@@ -1,0 +1,96 @@
+/* ============ écran Connexion iPhone ============ */
+
+.iphone-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(320px, 1.2fr) minmax(300px, 1fr);
+  gap: 18px;
+}
+
+.link-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.link-state {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.link-orb {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: grid;
+  place-items: center;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.link-orb svg { width: 26px; height: 26px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+
+.link-card.connected .link-orb {
+  border-color: var(--ok);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--ok) 30%, transparent);
+}
+
+.link-card.connected .link-orb svg { stroke: var(--ok); }
+
+.link-text .state {
+  font: 600 18px/1.2 var(--font-sans);
+  color: var(--text);
+}
+
+.link-text .detail {
+  margin-top: 4px;
+  font: 400 12px/1.5 var(--font-mono);
+  color: var(--muted);
+}
+
+.link-actions { display: flex; gap: 10px; }
+
+.protocol-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+
+.protocol-card h3 {
+  font: 500 11px/1.2 var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.msg-list { display: flex; flex-direction: column; gap: 6px; }
+
+.msg-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font: 400 12px/1.5 var(--font-mono);
+  padding: 7px 10px;
+  background: var(--surface-2);
+  border-radius: 8px;
+}
+
+.msg-item .t { color: var(--accent); }
+.msg-item .d { color: var(--muted); text-align: right; }
+
+.phase-note {
+  font: 400 11px/1.7 var(--font-mono);
+  color: var(--muted);
+  border-left: 2px solid var(--warn);
+  padding-left: 12px;
+}

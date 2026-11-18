@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>VESC DASH · Hybride</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/screens/dash.css">
+  <link rel="stylesheet" href="css/screens/gps.css">
+  <link rel="stylesheet" href="css/screens/vehicle.css">
+  <link rel="stylesheet" href="css/screens/iphone.css">
+  <link rel="stylesheet" href="css/screens/settings.css">
+  <link rel="stylesheet" href="css/screens/diagnostic.css">
+</head>
+<body>
+
+  <header id="statusbar">
+    <div class="sb-left">
+      <span class="logo">VESC <b>DASH</b><span class="tag">hybride</span></span>
+      <span id="chip-vesc" class="chip chip-idle">VESC · —</span>
+      <span id="chip-link" class="chip chip-off">iPhone · déconnecté</span>
+    </div>
+    <div class="sb-right">
+      <span id="sb-fps" class="sb-value">— fps</span>
+      <span id="sb-clock">--:--</span>
+    </div>
+  </header>
+
+  <main id="stage"></main>
+
+  <nav id="dock" aria-label="Écrans"></nav>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

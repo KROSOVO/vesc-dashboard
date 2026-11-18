@@ -1,0 +1,9 @@
+# Machine-local et artefacts de build
+local.properties
+.gradle/
+build/
+app/build/
+.idea/
+*.iml
+captures/
+.cxx/

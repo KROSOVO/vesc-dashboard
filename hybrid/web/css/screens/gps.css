@@ -1,0 +1,86 @@
+/* ============ écran Navigation (gps) ============ */
+
+.gps-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr minmax(230px, 320px);
+  gap: 18px;
+}
+
+.map-wrap {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 30% 20%, #0d1520 0%, var(--bg) 70%);
+}
+
+.map-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.map-grid line { stroke: #16202e; stroke-width: 1; }
+
+.map-route { stroke: #24384e; stroke-width: 10; fill: none; stroke-linecap: round; }
+.map-route-dash { stroke: #314a63; stroke-width: 1.4; fill: none; stroke-dasharray: 6 10; }
+
+.map-pos {
+  fill: color-mix(in srgb, var(--accent) 25%, transparent);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.map-trail { stroke: var(--accent); stroke-width: 2.5; fill: none; opacity: .8; }
+.map-marker { fill: var(--accent); }
+
+.map-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  font: 500 10px/1.4 var(--font-mono);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(5, 8, 13, .7);
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.gps-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gps-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gps-row .label {
+  font: 500 10px/1.2 var(--font-mono);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.gps-row .value {
+  font: 300 22px/1.1 var(--font-mono);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.gps-row .value small { font-size: 12px; color: var(--muted); margin-left: 4px; }
+
+.gps-note {
+  font: 400 11px/1.6 var(--font-mono);
+  color: var(--muted);
+  border-left: 2px solid var(--accent-dim);
+  padding-left: 12px;
+}
