@@ -1,0 +1,48 @@
+/* ============ Styles pour écrans VESC superposés à CarPlay ============ */
+
+.vesc-screen {
+  position: absolute;
+  inset: 0;
+  background: var(--cp-black);
+  z-index: var(--cp-z-app-open);
+  display: flex;
+  flex-direction: column;
+  animation: cp-screen-in 0.3s cubic-bezier(.25, .46, .45, .94);
+}
+
+@keyframes cp-screen-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Les écrans VESC existants (dash, gps, etc.) ont déjà leurs styles.
+ * Ce fichier ajoute juste les ajustements pour l'intégration CarPlay. */
+
+/* Statusbar reste visible par-dessus les écrans VESC */
+#statusbar { z-index: 200; }
+
+/* Dock pour écrans VESC (bouton retour + titre) */
+#dock.vesc-mode {
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.cp-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--cp-radius-lg);
+  border: none;
+  background: rgba(0,122,255,0.15);
+  color: var(--cp-blue);
+  font: 500 12px/1 var(--cp-font);
+  cursor: pointer;
+  transition: background var(--cp-transition-fast), transform var(--cp-transition-fast);
+}
+
+.cp-back-btn:active { transform: scale(0.92); }
+.cp-back-btn:hover { background: rgba(0,122,255,0.25); }

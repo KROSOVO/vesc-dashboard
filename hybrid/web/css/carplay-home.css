@@ -1,0 +1,301 @@
+/* ============ CarPlay Home Screen — Écran d'accueil fidèlement reconstruit ============ */
+
+.cp-home {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+}
+
+/* ============ SIDEBAR GAUCHE (9% largeur, fixe) ============ */
+.cp-sidebar {
+  width: var(--cp-sidebar-w);
+  min-width: 60px;
+  max-width: 90px;
+  height: 100%;
+  background: var(--cp-sidebar-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--cp-sidebar-border);
+  border-radius: 0 var(--cp-radius-xl) var(--cp-radius-xl) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--cp-sidebar-padding) 8px;
+  gap: var(--cp-sidebar-item-gap);
+  z-index: var(--cp-z-sidebar);
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Heure en haut */
+.cp-sidebar-time {
+  font: var(--cp-time-font);
+  color: var(--cp-white);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+/* Indicateurs réseau (signal + 4G) */
+.cp-sidebar-indicators {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.cp-signal-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.cp-signal-bar {
+  width: 3px;
+  background: var(--cp-white);
+  border-radius: 1px;
+  opacity: 0.8;
+}
+.cp-signal-bar:nth-child(1) { height: 30%; }
+.cp-signal-bar:nth-child(2) { height: 50%; }
+.cp-signal-bar:nth-child(3) { height: 70%; }
+.cp-signal-bar:nth-child(4) { height: 90%; }
+
+.cp-network-label {
+  font: var(--cp-signal-font);
+  color: var(--cp-white);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Raccourcis (3 icônes carrées arrondies) */
+.cp-sidebar-shortcuts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cp-sidebar-item-gap);
+  width: 100%;
+  flex: 1;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.cp-shortcut {
+  position: relative;
+  width: var(--cp-sidebar-icon-size);
+  height: var(--cp-sidebar-icon-size);
+  border-radius: var(--cp-sidebar-icon-radius);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--cp-transition-fast), transform var(--cp-transition-fast), border-color var(--cp-transition-fast);
+}
+
+.cp-shortcut svg {
+  width: 60%;
+  height: 60%;
+  stroke: var(--cp-white);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cp-shortcut:hover,
+.cp-shortcut:active {
+  background: rgba(255,255,255,0.2);
+  transform: scale(0.95);
+}
+
+.cp-shortcut.active {
+  background: var(--cp-blue);
+  border-color: var(--cp-blue-light);
+  box-shadow: 0 0 16px rgba(0,122,255,0.4);
+}
+
+.cp-shortcut.active svg { stroke: var(--cp-white); }
+
+/* Bouton Home (bas) */
+.cp-home-btn {
+  width: var(--cp-home-btn-size);
+  height: var(--cp-home-btn-size);
+  border-radius: var(--cp-home-btn-radius);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--cp-transition-fast), transform var(--cp-transition-fast);
+  margin-top: auto;
+}
+
+.cp-home-btn svg {
+  width: 55%;
+  height: 55%;
+  stroke: var(--cp-white);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cp-home-btn:active { transform: scale(0.9); }
+.cp-home-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* ============ ZONE PRINCIPALE (grille + fond + pagination) ============ */
+.cp-main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Fond d'écran */
+.cp-wallpaper-container {
+  position: absolute;
+  inset: 0;
+  z-index: var(--cp-z-wallpaper);
+}
+
+/* Conteneur grille avec pagination (swipe horizontal) */
+.cp-pages-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  overflow-x: hidden;
+  touch-action: pan-x;
+}
+
+.cp-page {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  align-content: start;
+  padding: var(--cp-grid-margin-top) var(--cp-grid-margin-left) var(--cp-grid-margin-bottom) var(--cp-grid-margin-right);
+  box-sizing: border-box;
+  transition: transform var(--cp-swipe-duration) cubic-bezier(.25, .46, .45, .94);
+}
+
+/* Grille applications 2×5 */
+.cp-app-grid {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--cp-grid-gap-y) var(--cp-grid-gap-x);
+  align-items: start;
+  justify-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Carte application */
+.cp-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cp-app-label-gap);
+  cursor: pointer;
+  tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: var(--cp-app-icon-radius);
+  transition: transform var(--cp-transition-fast);
+}
+
+.cp-app:active {
+  transform: scale(0.92);
+}
+
+.cp-app-icon {
+  width: var(--cp-app-icon-size);
+  height: var(--cp-app-icon-size);
+  border-radius: var(--cp-app-icon-radius);
+  box-shadow: var(--cp-app-icon-shadow);
+  display: block;
+  transition: box-shadow var(--cp-transition-fast);
+}
+
+.cp-app:active .cp-app-icon {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.cp-app-label {
+  font: var(--cp-app-label-font);
+  color: var(--cp-label-text);
+  background: var(--cp-label-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--cp-app-label-padding);
+  border-radius: var(--cp-app-label-radius);
+  white-space: nowrap;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Pagination (4 points) */
+.cp-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--cp-pagination-gap);
+  padding-bottom: var(--cp-pagination-bottom);
+  z-index: var(--cp-z-pagination);
+}
+
+.cp-pagination-dot {
+  width: var(--cp-pagination-dot-size);
+  height: var(--cp-pagination-dot-size);
+  border-radius: 50%;
+  background: var(--cp-pagination-inactive);
+  border: none;
+  cursor: pointer;
+  transition: background var(--cp-transition-fast), transform var(--cp-transition-fast);
+}
+
+.cp-pagination-dot.active {
+  background: var(--cp-pagination-active);
+  transform: scale(1.15);
+}
+
+.cp-pagination-dot:hover { transform: scale(1.2); }
+
+/* ============ Responsive scaling ============ */
+/* Le JS calcule --cp-scale = innerWidth / 745 et l'applique */
+.cp-home { transform-origin: 0 0; }
+.cp-home.scaled { transform: scale(var(--cp-scale)); }
+
+/* ============ Animations ouverture/fermeture app ============ */
+.cp-app-opening .cp-app-icon {
+  animation: cp-app-open 0.35s cubic-bezier(.25, .46, .45, .94) forwards;
+}
+
+.cp-app-closing .cp-app-icon {
+  animation: cp-app-close 0.25s cubic-bezier(.25, .46, .45, .94) forwards;
+}
+
+@keyframes cp-app-open {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 0; }
+}
+
+@keyframes cp-app-close {
+  0% { transform: scale(1.05); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ============ État page active ============ */
+.cp-page { will-change: transform; }

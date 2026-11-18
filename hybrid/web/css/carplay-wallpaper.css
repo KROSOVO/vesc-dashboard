@@ -1,0 +1,16 @@
+/* ============ CarPlay Wallpaper — Reconstruction SVG (745×420 reference) ============ */
+
+.cp-wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: var(--cp-z-wallpaper);
+  overflow: hidden;
+  background: #0a0f1a; /* fallback nuit */
+}
+
+.cp-wallpaper svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* L'artwork est dessiné dans un viewBox 745×420 et scale au container */
+}

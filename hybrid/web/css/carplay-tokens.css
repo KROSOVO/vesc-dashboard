@@ -1,0 +1,91 @@
+/* ============ CarPlay Design Tokens (extrait de la référence 745×420) ============ */
+
+:root {
+  /* ---- Résolution de référence ---- */
+  --cp-ref-w: 745;
+  --cp-ref-h: 420;
+
+  /* ---- Couleurs officielles CarPlay ---- */
+  --cp-black: #000000;
+  --cp-white: #ffffff;
+  --cp-sidebar-bg: rgba(0, 0, 0, 0.85);
+  --cp-sidebar-border: rgba(255, 255, 255, 0.08);
+  --cp-label-bg: rgba(0, 0, 0, 0.65);
+  --cp-label-text: #ffffff;
+  --cp-pagination-inactive: rgba(255, 255, 255, 0.35);
+  --cp-pagination-active: #ffffff;
+
+  /* Couleurs icônes (approximations officielles) */
+  --cp-green: #34c759;        /* Téléphone, Messages */
+  --cp-green-dark: #28a745;
+  --cp-red-pink: #ff2d55;     /* Musique */
+  --cp-red-dark: #e01e4a;
+  --cp-blue-map: #007aff;     /* Plans, Météo */
+  --cp-blue-dark: #0066cc;
+  --cp-purple: #af52de;       /* Podcasts */
+  --cp-purple-dark: #9a3fd8;
+  --cp-orange: #ff9f0a;       /* Livres audio */
+  --cp-orange-dark: #e08900;
+  --cp-gray-settings: #8e8e93; /* Réglages */
+  --cp-gray-dark: #636366;
+  --cp-white-nowplaying: #ffffff; /* À l'écoute */
+
+  /* ---- Dimensions sidebar (9% largeur) ---- */
+  --cp-sidebar-w-pct: 9%;
+  --cp-sidebar-w: calc(var(--cp-ref-w) * 0.09); /* ~67px à 745px */
+  --cp-sidebar-padding: 12px;
+  --cp-sidebar-item-gap: 16px;
+  --cp-sidebar-icon-size: 28px;
+  --cp-sidebar-icon-radius: 8px;
+  --cp-home-btn-size: 36px;
+  --cp-home-btn-radius: 10px;
+
+  /* ---- Grille applications (2 rangées × 5 colonnes) ---- */
+  --cp-grid-rows: 2;
+  --cp-grid-cols: 5;
+  --cp-grid-gap-x: 18px;
+  --cp-grid-gap-y: 22px;
+  --cp-grid-margin-top: 28px;
+  --cp-grid-margin-bottom: 24px;
+  --cp-grid-margin-left: 24px;
+  --cp-grid-margin-right: 24px;
+
+  /* ---- Icônes applications ---- */
+  --cp-app-icon-size: 68px;
+  --cp-app-icon-radius: 16px;  /* coins fortement arrondis style iOS */
+  --cp-app-icon-shadow: 0 4px 16px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2);
+  --cp-app-label-gap: 6px;
+  --cp-app-label-font: 400 11px/1.2 var(--cp-font);
+  --cp-app-label-padding: 4px 8px;
+  --cp-app-label-radius: 6px;
+  --cp-app-label-bg: rgba(0, 0, 0, 0.6);
+
+  /* ---- Pagination (4 points) ---- */
+  --cp-pagination-dot-size: 7px;
+  --cp-pagination-gap: 8px;
+  --cp-pagination-bottom: 16px;
+
+  /* ---- Typographie ---- */
+  --cp-font: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --cp-font-mono: "SF Mono", "Monaco", "Menlo", monospace;
+  --cp-time-font: 600 14px/1 var(--cp-font);
+  --cp-signal-font: 400 11px/1 var(--cp-font);
+
+  /* ---- Transitions ---- */
+  --cp-transition: 250ms cubic-bezier(.25, .46, .45, .94);
+  --cp-transition-fast: 150ms cubic-bezier(.25, .46, .45, .94);
+  --cp-swipe-duration: 300ms;
+
+  /* ---- Z-index ---- */
+  --cp-z-sidebar: 100;
+  --cp-z-grid: 10;
+  --cp-z-wallpaper: 1;
+  --cp-z-pagination: 50;
+  --cp-z-app-open: 200;
+}
+
+/* ============ Responsive : échelle proportionnelle ============ */
+/* La référence est 745×420. Tout s'échelle via --cp-scale. */
+:root {
+  --cp-scale: 1; /* calculé au runtime JS selon window.innerWidth / 745 */
+}
