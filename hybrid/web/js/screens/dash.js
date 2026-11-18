@@ -1,4 +1,4 @@
-/* Écran Accueil — CarPlay style : vitesse circulaire, batterie, média, nav. */
+/* Écran Accueil — CarPlay Standard : vitesse, batterie, média, nav. */
 
 import { on } from '../bus.js';
 import { Settings } from '../settings-store.js';
@@ -10,32 +10,43 @@ let units = 'kmh';
 
 function html() {
   return `
-    <div class="main-grid">
-      <section class="cp-card card-speed dash-card">
+    <div class="cp-main-grid">
+      <section class="cp-card zone-speed speed-card">
         <div class="cp-card-inner">
-          <div class="cp-title">Vitesse <span>·</span> VESC</div>
-          <div class="speed-ring cp-ring">
-            <svg viewBox="0 0 200 200">
-              <circle class="cp-ring-track" cx="100" cy="100" r="88" />
-              <circle class="cp-ring-progress" id="dash-ring" cx="100" cy="100" r="88"
-                      stroke-dasharray="${(2 * Math.PI * 88).toFixed(1)}" stroke-dashoffset="0" />
-            </svg>
-            <text class="cp-ring-text" x="100" y="100" id="dash-speed">0</text>
-            <text class="cp-ring-sub" x="100" y="138" id="dash-unit">km/h</text>
+          <div class="cp-section-title">Vitesse <span>·</span> VESC</div>
+          <div class="cp-ring-wrap">
+            <div class="cp-ring speed-ring">
+              <svg viewBox="0 0 200 200">
+                <circle class="cp-ring-track" cx="100" cy="100" r="90" />
+                <circle class="cp-ring-progress" id="dash-ring" cx="100" cy="100" r="90"
+                        stroke-dasharray="${(2 * Math.PI * 90).toFixed(1)}" stroke-dashoffset="0" />
+              </svg>
+              <text class="cp-ring-value" x="100" y="100" id="dash-speed">0</text>
+              <text class="cp-ring-sub" x="100" y="128" id="dash-unit">km/h</text>
+            </div>
           </div>
-          <div class="power-row">
-            <div class="power-item"><div class="val" id="dash-power">0</div><div class="lbl">Watts</div></div>
-            <div class="power-item"><div class="val" id="dash-current">0<small>A</small></div><div class="lbl">Courant</div></div>
-            <div class="power-item"><div class="val" id="dash-voltage">0<small>V</small></div><div class="lbl">Tension</div></div>
+          <div class="speed-details">
+            <div class="speed-detail">
+              <div class="val" id="dash-power">0</div>
+              <div class="lbl">W</div>
+            </div>
+            <div class="speed-detail">
+              <div class="val" id="dash-current">0</div>
+              <div class="lbl">A</div>
+            </div>
+            <div class="speed-detail">
+              <div class="val" id="dash-voltage">0</div>
+              <div class="lbl">V</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="cp-card card-media media-card">
+      <section class="cp-card zone-media media-card">
         <div class="cp-card-inner">
-          <div class="cp-title">Média <span>·</span> iPhone</div>
+          <div class="cp-section-title">Média <span>·</span> iPhone</div>
           <div class="media-artwork" id="media-art">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="placeholder" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </div>
           <div class="media-info">
             <div class="media-title" id="media-title">—</div>
@@ -49,27 +60,29 @@ function html() {
         </div>
       </section>
 
-      <section class="cp-card card-battery dash-card">
+      <section class="cp-card zone-battery battery-card">
         <div class="cp-card-inner">
-          <div class="cp-title">Batterie <span>·</span> Pack</div>
-          <div class="battery-ring cp-ring">
-            <svg viewBox="0 0 180 180">
-              <circle class="cp-ring-track" cx="90" cy="90" r="75" />
-              <circle class="cp-ring-progress" id="batt-ring" cx="90" cy="90" r="75"
-                      stroke-dasharray="${(2 * Math.PI * 75).toFixed(1)}" stroke-dashoffset="0" />
-            </svg>
-            <text class="cp-ring-text" x="90" y="88" id="batt-pct">—</text>
-            <text class="cp-ring-sub" x="90" y="116">%</text>
+          <div class="cp-section-title">Batterie <span>·</span> Pack</div>
+          <div class="cp-ring-wrap battery-ring">
+            <div class="cp-ring">
+              <svg viewBox="0 0 160 160">
+                <circle class="cp-ring-track" cx="80" cy="80" r="70" />
+                <circle class="cp-ring-progress" id="batt-ring" cx="80" cy="80" r="70"
+                        stroke-dasharray="${(2 * Math.PI * 70).toFixed(1)}" stroke-dashoffset="0" />
+              </svg>
+              <text class="cp-ring-value" x="80" y="78" id="batt-pct">—</text>
+              <text class="cp-ring-sub" x="80" y="106">%</text>
+            </div>
           </div>
-          <div class="battery-meta">
-            <div class="item"><div class="val" id="batt-volt">—<small>V</small></div><div class="lbl">Tension</div></div>
-            <div class="item"><div class="val" id="batt-range">—<small>km</small></div><div class="lbl">Autonomie</div></div>
-            <div class="item"><div class="val" id="batt-temp">—<small>°C</small></div><div class="lbl">Temp.</div></div>
+          <div class="battery-stats">
+            <div class="battery-stat"><div class="val" id="batt-volt">—</div><div class="lbl">Volts</div></div>
+            <div class="battery-stat"><div class="val" id="batt-range">—</div><div class="lbl">km</div></div>
+            <div class="battery-stat"><div class="val" id="batt-temp">—</div><div class="lbl">°C</div></div>
           </div>
         </div>
       </section>
 
-      <section class="cp-card card-nav">
+      <section class="cp-card zone-nav nav-card">
         <div class="cp-card-inner" style="height:100%;padding:0;">
           <div class="nav-map" id="nav-map">
             <svg viewBox="0 0 360 360" preserveAspectRatio="none">
@@ -77,7 +90,8 @@ function html() {
                 ${gridLines(360, 40)}
               </g>
               <circle class="nav-route" cx="180" cy="180" r="110" />
-              <circle class="nav-pos" id="nav-pos" cx="180" cy="70" r="10" />
+              <circle class="nav-pos" id="nav-pos" cx="180" cy="70" r="9" />
+              <polyline class="nav-trail" id="nav-trail" points="" />
             </svg>
             <div class="nav-next">
               <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
@@ -113,22 +127,22 @@ function update(t) {
 
   const kmh = t.speed;
   const disp = units === 'mph' ? kmh / 1.609 : kmh;
-  const speedPct = Math.min(100, (disp / 80) * 100);
+  const speedPct = Math.min(100, (disp / 120) * 100); // max 120 km/h pour l'anneau
 
   el.querySelector('#dash-speed').textContent = Math.round(disp);
   el.querySelector('#dash-unit').textContent = units === 'mph' ? 'mph' : 'km/h';
   el.querySelector('#dash-power').textContent = Math.round(kmh * t.current * 2.2).toLocaleString('fr-FR');
-  el.querySelector('#dash-current').innerHTML = `${t.current.toFixed(1)}<small>A</small>`;
-  el.querySelector('#dash-voltage').innerHTML = `${t.voltage.toFixed(1)}<small>V</small>`;
+  el.querySelector('#dash-current').textContent = t.current.toFixed(1);
+  el.querySelector('#dash-voltage').textContent = t.voltage.toFixed(1);
 
-  setRing('dash-ring', speedPct, speedPct > 80 ? 'warn' : '');
+  setRing('dash-ring', speedPct, speedPct > 85 ? 'warn' : '');
 
   const battPct = t.battery;
   setRing('batt-ring', battPct, battPct <= 15 ? 'crit' : battPct <= 30 ? 'warn' : '');
   el.querySelector('#batt-pct').textContent = Math.round(battPct);
-  el.querySelector('#batt-volt').innerHTML = `${t.voltage.toFixed(1)}<small>V</small>`;
-  el.querySelector('#batt-range').innerHTML = `${Math.round(battPct / 100 * 46)}<small>km</small>`;
-  el.querySelector('#batt-temp').innerHTML = `${Math.round(t.tempEsc)}<small>°C</small>`;
+  el.querySelector('#batt-volt').textContent = t.voltage.toFixed(1);
+  el.querySelector('#batt-range').textContent = Math.round(battPct / 100 * 46);
+  el.querySelector('#batt-temp').textContent = Math.round(t.tempEsc);
 }
 
 export const dashScreen = {
