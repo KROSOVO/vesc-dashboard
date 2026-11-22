@@ -10,6 +10,12 @@ L'objectif est de proposer une interface moderne, intuitive et adaptée à une u
 
 💬 [**Discord**](https://discord.com/users/809470888101543977) — support, signalement de bugs et suggestions.
 
+## 📸 Aperçu
+
+| Compteur temps réel | Carte & navigation | Modes de conduite |
+| --- | --- | --- |
+| ![Compteur](assets/dash.jpg) | ![Carte](assets/map.jpg) | ![Modes](assets/modes.jpg) |
+
 ## 📱 L'application principale
 
 ### 🤖 Android — Application (PWA)
@@ -33,6 +39,20 @@ Sur iPhone / iPad, Safari ne supporte pas le Bluetooth web. Pour la connexion au
 👉 [**Accéder à la dernière version du VESC Dashboard**](https://KROSOVO.github.io/vesc-dashboard/Pre-Releases/V0.76.html)
 
 Les versions antérieures sont conservées dans le dossier [`Pre-Releases/`](Pre-Releases/).
+
+## 🚗 Version CarPlay : OpenPad
+
+Le même tableau de bord, mais dans une interface type **iPad / CarPlay** : écran d'accueil, dock, applications et réglages. Les compteurs, la carte et les modes sont identiques.
+
+![OpenPad, la version CarPlay de VESC Dashboard](assets/carplay.jpg)
+
+👉 [**Page du projet OpenPad**](https://krosovo.github.io/openpad/)
+
+👉 [**Ouvrir OpenPad**](https://krosovo.github.io/openpad/app/)
+
+👉 [**Dépôt GitHub OpenPad**](https://github.com/KROSOVO/openpad)
+
+Deux versions, une seule base : **VESC Dash** pour le compteur seul, **OpenPad** pour la version CarPlay.
 
 ## ✨ Fonctionnalités
 

@@ -200,6 +200,22 @@ footer a:hover{color:var(--text)}
   .pcols{grid-template-columns:1fr}
   .pmodal{padding:22px 18px 20px}
 }
+
+/* ---------- aperçu ---------- */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0b0b0b;box-shadow:0 18px 44px -30px #000;transition:transform .2s,border-color .2s}
+.shot:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
+.shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.shot .lb{position:absolute;left:10px;bottom:10px;background:#05070bd9;border:1px solid var(--line);border-radius:8px;padding:5px 10px;font:600 11px var(--font);color:var(--text);letter-spacing:.4px}
+
+/* ---------- carplay ---------- */
+.carplay{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;margin-top:26px}
+.carplay .cpimg{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -35px #000}
+.carplay .cpimg img{display:block;width:100%}
+.carplay .cpbtn{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.carplay p{color:var(--muted);line-height:1.7;font-size:15px;font-weight:300;margin:0 0 12px}
+.carplay p b{color:var(--text);font-weight:600}
+@media(max-width:820px){.shots{grid-template-columns:1fr}.carplay{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -211,8 +227,10 @@ footer a:hover{color:var(--text)}
       VESC DASH <small>by KROSOVO</small>
     </a>
     <div class="links">
+      <a href="#apercu" data-fr="Aperçu" data-en="Preview">Aperçu</a>
       <a href="#projet" data-fr="Le projet" data-en="The project">Le projet</a>
       <a href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a>
+      <a href="#carplay" data-fr="CarPlay" data-en="CarPlay">CarPlay</a>
       <a href="#versions" data-fr="Versions" data-en="Versions">Versions</a>
       <a href="#support" data-fr="Support" data-en="Support">Support</a>
       <div class="lang" role="group" aria-label="Language">
@@ -244,6 +262,18 @@ footer a:hover{color:var(--text)}
   </div>
 </header>
 
+<section id="apercu" style="padding-top:44px">
+  <div class="wrap">
+    <div class="kicker" data-fr="Aperçu" data-en="Preview">Aperçu</div>
+    <h2 data-fr="Le tableau de bord en images" data-en="The dashboard in pictures">Le tableau de bord en images</h2>
+    <div class="shots">
+      <div class="shot"><img src="assets/dash.jpg" alt="Compteur VESC en temps réel" loading="lazy"><span class="lb" data-fr="Compteur temps réel" data-en="Real-time gauge">Compteur temps réel</span></div>
+      <div class="shot"><img src="assets/map.jpg" alt="Carte GPS et navigation" loading="lazy"><span class="lb" data-fr="Carte & navigation" data-en="Map & navigation">Carte &amp; navigation</span></div>
+      <div class="shot"><img src="assets/modes.jpg" alt="Modes de conduite Eco, Sport, Race" loading="lazy"><span class="lb" data-fr="Modes de conduite" data-en="Riding modes">Modes de conduite</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="projet">
   <div class="wrap">
     <div class="kicker" data-fr="Le projet" data-en="The project">Le projet</div>
@@ -270,6 +300,29 @@ footer a:hover{color:var(--text)}
           <li data-fr="Installation hors ligne (PWA) sur écran d'accueil" data-en="Offline install (PWA) on your home screen">Installation hors ligne (PWA) sur écran d'accueil</li>
           <li data-fr="Gratuit et open source — HTML/CSS/JS uniquement" data-en="Free and open source — HTML/CSS/JS only">Gratuit et open source — HTML/CSS/JS uniquement</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="carplay">
+  <div class="wrap">
+    <div class="kicker" data-fr="Version CarPlay" data-en="CarPlay version">Version CarPlay</div>
+    <h2 data-fr="Le même Dashboard, en mode CarPlay" data-en="The same Dashboard, CarPlay style">Le même Dashboard, en mode CarPlay</h2>
+    <div class="carplay">
+      <div class="cpimg"><img src="assets/carplay.jpg" alt="OpenPad, la version CarPlay de VESC Dashboard" loading="lazy"></div>
+      <div>
+        <p data-fr="<b>OpenPad</b> reprend ce tableau de bord — mêmes compteurs, même carte, mêmes modes — et l'installe dans une interface type iPad / CarPlay : écran d'accueil, dock, applications et réglages."
+           data-en="<b>OpenPad</b> takes this dashboard — same gauges, same map, same modes — and puts it inside an iPad / CarPlay style interface: home screen, dock, apps and settings.">
+          <b>OpenPad</b> reprend ce tableau de bord — mêmes compteurs, même carte, mêmes modes — et l'installe dans une interface type iPad / CarPlay : écran d'accueil, dock, applications et réglages.</p>
+        <p data-fr="Deux versions, une seule base : <b>VESC Dash</b> pour le compteur seul, <b>OpenPad</b> pour la version CarPlay."
+           data-en="Two versions, one base: <b>VESC Dash</b> for the gauge alone, <b>OpenPad</b> for the CarPlay version.">
+          Deux versions, une seule base : <b>VESC Dash</b> pour le compteur seul, <b>OpenPad</b> pour la version CarPlay.</p>
+        <div class="cpbtn">
+          <a class="btn p" href="https://krosovo.github.io/openpad/"><span data-fr="Page du projet OpenPad" data-en="OpenPad project page">Page du projet OpenPad</span> ↗</a>
+          <a class="btn g" href="https://krosovo.github.io/openpad/app/"><span data-fr="Ouvrir OpenPad" data-en="Open OpenPad">Ouvrir OpenPad</span></a>
+          <a class="btn o" href="https://github.com/KROSOVO/openpad">GitHub ↗</a>
+        </div>
       </div>
     </div>
   </div>
