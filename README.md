@@ -6,7 +6,7 @@ VESC Dashboard est un projet d'interface embarquée conçu pour transformer un s
 
 L'objectif est de proposer une interface moderne, intuitive et adaptée à une utilisation en roulant.
 
-🌐 [**Page du projet**](https://clementdbs2-del.github.io/vesc-dashboard/) — présentation, toutes les versions et support.
+🌐 [**Page du projet**](https://KROSOVO.github.io/vesc-dashboard/) — présentation, toutes les versions et support.
 
 💬 [**Discord**](https://discord.com/users/809470888101543977) — support, signalement de bugs et suggestions.
 
@@ -16,7 +16,7 @@ L'objectif est de proposer une interface moderne, intuitive et adaptée à une u
 
 L'application installable sur Android (PWA) se trouve dans le dossier [`app/`](app/) :
 
-👉 [**Ouvrir l'application VESC Dashboard**](https://clementdbs2-del.github.io/vesc-dashboard/app/)
+👉 [**Ouvrir l'application VESC Dashboard**](https://KROSOVO.github.io/vesc-dashboard/app/)
 
 Depuis Chrome : `⋮` → **Ajouter à l'écran d'accueil** pour l'installer comme une vraie application (fonctionne hors ligne grâce au cache).
 
@@ -24,13 +24,13 @@ Depuis Chrome : `⋮` → **Ajouter à l'écran d'accueil** pour l'installer com
 
 Sur iPhone / iPad, Safari ne supporte pas le Bluetooth web. Pour la connexion au VESC, ouvrez l'application dans le navigateur [**Bluefy**](https://apps.apple.com/app/bluefy-web-ble-browser/id1492822055) (gratuit sur l'App Store) :
 
-👉 [**Ouvrir l'application dans Bluefy**](https://clementdbs2-del.github.io/vesc-dashboard/app/)
+👉 [**Ouvrir l'application dans Bluefy**](https://KROSOVO.github.io/vesc-dashboard/app/)
 
 ## 🚀 Dernière version web
 
 **Version actuelle :** V0.76
 
-👉 [**Accéder à la dernière version du VESC Dashboard**](https://clementdbs2-del.github.io/vesc-dashboard/Pre-Releases/V0.76.html)
+👉 [**Accéder à la dernière version du VESC Dashboard**](https://KROSOVO.github.io/vesc-dashboard/Pre-Releases/V0.76.html)
 
 Les versions antérieures sont conservées dans le dossier [`Pre-Releases/`](Pre-Releases/).
 
